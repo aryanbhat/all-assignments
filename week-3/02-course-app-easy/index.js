@@ -66,7 +66,7 @@ app.post('/admin/courses', (req, res) => {
             'id' : courseId++
           }
           COURSES.push(newCourse);
-          res.status(200).send(COURSES);
+          res.status(200).send("Course added successfully");
       }
     }
     res.status(404).send('User credential does not match');
@@ -85,13 +85,13 @@ app.put('/admin/courses/:courseId', (req, res) => {
   for(let admin of ADMINS){
   if(admin.username === username && admin.password === password){
   for(let course of COURSES){
-    if(course.id === id){
-      res.send(course);
+    if(course.id == id){
         course.title = title;
         course.description = description;
         course.price = price;
         course.imgLink = imgLink;
         check = true;
+        res.status(200).send("Course updated successfully");
      }
    }
    if(check === false){
@@ -106,27 +106,88 @@ app.put('/admin/courses/:courseId', (req, res) => {
 
 app.get('/admin/courses', (req, res) => {
   // logic to get all courses
+  const username = req.headers.username;
+  const password = req.headers.password;
+  for(let admin of ADMINS){
+    if(admin.username === username && admin.password === password){
+      res.status(200).json(COURSES);
+    }
+  }
+  res.status(400).send("Admin credentials dont match");
 });
 
 // User routes
 app.post('/users/signup', (req, res) => {
   // logic to sign up user
+  const username = req.body.username;
+  const password = req.body.password;
+  for(let user of USERS){
+    if(user.username === username){
+        res.status(400).send("User already exists");
+    }
+  }
+  let newUser = {
+    'username':username,
+    'password':password,
+    'coursePurchased':[]
+  }
+  USERS.push(newUser);
+  res.status(200).send("User registered successfully");
 });
 
 app.post('/users/login', (req, res) => {
   // logic to log in user
+    const username = req.headers.username;
+    const password = req.headers.password;
+    for(let user of USERS){
+      if(user.username === username && user.password === password){
+        res.status(200).send("User logged in successfully");
+      }
+    }
+    res.status(404).send("User not found");
 });
 
 app.get('/users/courses', (req, res) => {
   // logic to list all courses
+  const username = req.headers.username;
+  const password = req.headers.password;
+  for(let user of USERS){
+    if(user.username === username && user.password === password){
+      res.send(COURSES);
+    }
+  }
+  res.status(400).send("User not found");
 });
 
 app.post('/users/courses/:courseId', (req, res) => {
   // logic to purchase a course
+  const id = req.params.courseId;
+  const username = req.headers.username;
+  const password = req.headers.password;
+  for(let user of USERS){
+    if(user.username === username && user.password === password){
+      for(let course of COURSES){
+        if(course.id == id){
+          user.coursePurchased.push(course);
+          res.send("Course purchased successfully");
+        }
+      }
+      res.status(404).send("Course not found");
+    }
+  }
+  res.status(404).send("User not found");
 });
 
 app.get('/users/purchasedCourses', (req, res) => {
   // logic to view purchased courses
+    const username = req.headers.usernames;
+    const password = req.headers.password;
+    for(let user of USERS){
+      if(user.username === username && user.password === password){
+        res.status(200).json(user.coursePurchased);
+      }
+    }
+    res.status(404).send("User not found");
 });
 
 app.listen(3000, () => {
