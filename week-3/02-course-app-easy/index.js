@@ -180,7 +180,7 @@ app.post('/users/courses/:courseId', (req, res) => {
 
 app.get('/users/purchasedCourses', (req, res) => {
   // logic to view purchased courses
-    const username = req.headers.usernames;
+    const username = req.headers.username;
     const password = req.headers.password;
     for(let user of USERS){
       if(user.username === username && user.password === password){
