@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+.signupForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80%;
+  height: 60vh;
+  margin: auto;
+}
+.signupFormInput{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.signupBtn{
+  margin-top: 10%;
+}

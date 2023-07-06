@@ -1,12 +1,17 @@
 const express = require('express');
 const app = express();
+<<<<<<< HEAD
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+=======
+
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 app.use(express.json());
 
 let ADMINS = [];
 let USERS = [];
 let COURSES = [];
+<<<<<<< HEAD
 let courseId = 1;
 // Admin routes
 app.post('/admin/signup', (req, res) => {
@@ -30,10 +35,17 @@ app.post('/admin/signup', (req, res) => {
 else{
   res.status(400).send("Account already exists");
 }
+=======
+
+// Admin routes
+app.post('/admin/signup', (req, res) => {
+  // logic to sign up admin
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 app.post('/admin/login', (req, res) => {
   // logic to log in admin
+<<<<<<< HEAD
   const username = req.headers.username;
   const password = req.headers.password;
   for(let user of ADMINS){
@@ -46,10 +58,13 @@ app.post('/admin/login', (req, res) => {
     }
   }
   res.status(404).send("User does not exist");
+=======
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 app.post('/admin/courses', (req, res) => {
   // logic to create a course
+<<<<<<< HEAD
     const username = req.headers.username;
     const password = req.headers.password;
     for(let user of ADMINS){
@@ -70,10 +85,13 @@ app.post('/admin/courses', (req, res) => {
       }
     }
     res.status(404).send('User credential does not match');
+=======
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 app.put('/admin/courses/:courseId', (req, res) => {
   // logic to edit a course
+<<<<<<< HEAD
   const id = req.params.courseId;
   const username = req.headers.username;
   const password = req.headers.password;
@@ -102,10 +120,13 @@ app.put('/admin/courses/:courseId', (req, res) => {
   res.status(404).send("User credential does not match");
  }
 }
+=======
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 app.get('/admin/courses', (req, res) => {
   // logic to get all courses
+<<<<<<< HEAD
   const username = req.headers.username;
   const password = req.headers.password;
   for(let admin of ADMINS){
@@ -114,11 +135,14 @@ app.get('/admin/courses', (req, res) => {
     }
   }
   res.status(400).send("Admin credentials dont match");
+=======
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 // User routes
 app.post('/users/signup', (req, res) => {
   // logic to sign up user
+<<<<<<< HEAD
   const username = req.body.username;
   const password = req.body.password;
   for(let user of USERS){
@@ -133,10 +157,13 @@ app.post('/users/signup', (req, res) => {
   }
   USERS.push(newUser);
   res.status(200).send("User registered successfully");
+=======
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 app.post('/users/login', (req, res) => {
   // logic to log in user
+<<<<<<< HEAD
     const username = req.headers.username;
     const password = req.headers.password;
     for(let user of USERS){
@@ -145,10 +172,13 @@ app.post('/users/login', (req, res) => {
       }
     }
     res.status(404).send("User not found");
+=======
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 app.get('/users/courses', (req, res) => {
   // logic to list all courses
+<<<<<<< HEAD
   const username = req.headers.username;
   const password = req.headers.password;
   for(let user of USERS){
@@ -157,10 +187,13 @@ app.get('/users/courses', (req, res) => {
     }
   }
   res.status(400).send("User not found");
+=======
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 app.post('/users/courses/:courseId', (req, res) => {
   // logic to purchase a course
+<<<<<<< HEAD
   const id = req.params.courseId;
   const username = req.headers.username;
   const password = req.headers.password;
@@ -176,10 +209,13 @@ app.post('/users/courses/:courseId', (req, res) => {
     }
   }
   res.status(404).send("User not found");
+=======
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 app.get('/users/purchasedCourses', (req, res) => {
   // logic to view purchased courses
+<<<<<<< HEAD
     const username = req.headers.username;
     const password = req.headers.password;
     for(let user of USERS){
@@ -188,6 +224,8 @@ app.get('/users/purchasedCourses', (req, res) => {
       }
     }
     res.status(404).send("User not found");
+=======
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 });
 
 app.listen(3000, () => {

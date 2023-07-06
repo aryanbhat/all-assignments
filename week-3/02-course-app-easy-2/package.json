@@ -8,10 +8,14 @@
   },
   "keywords": [],
   "author": "",
+<<<<<<< HEAD
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "nodemon": "^2.0.22"
   }
+=======
+  "license": "ISC"
+>>>>>>> aac249775ee19a178be4b9a6fcf946f8012e4b3e
 }
