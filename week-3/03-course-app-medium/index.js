@@ -22,7 +22,7 @@ try {
 }
 console.log(ADMINS);
 
-const SECRET = 'my-secret-key';
+const SECRET = 'e6e1ed755963a7724b8b1c16c6a18f66c51f1c9cf02d240ea28fae6da1969d96a9c11d91f63750a32afe463ad968ee747553447b018b655e7bbe6279998fa299';
 
 const authenticateJwt = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -44,7 +44,6 @@ const authenticateJwt = (req, res, next) => {
 app.post('/admin/signup', (req, res) => {
   const { username, password } = req.body;
   const admin = ADMINS.find(a => a.username === username);
-  console.log("admin signup");
   if (admin) {
     res.status(403).json({ message: 'Admin already exists' });
   } else {
@@ -72,7 +71,7 @@ app.post('/admin/courses', authenticateJwt, (req, res) => {
   course.id = COURSES.length + 1;
   COURSES.push(course);
   fs.writeFileSync('courses.json', JSON.stringify(COURSES));
-  res.json({ message: 'Course created successfully', courseId: course.id });
+  res.json({ message: 'Course created successfully', courseId: course.id , "username":req.user});
 });
 
 app.put('/admin/courses/:courseId', authenticateJwt, (req, res) => {
@@ -87,7 +86,7 @@ app.put('/admin/courses/:courseId', authenticateJwt, (req, res) => {
 });
 
 app.get('/admin/courses', authenticateJwt, (req, res) => {
-  res.json({ courses: COURSES });
+  res.json({ courses: COURSES ,'username':req.user});
 });
 
 // User routes

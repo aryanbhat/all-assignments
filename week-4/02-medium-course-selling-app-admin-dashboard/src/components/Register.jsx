@@ -8,6 +8,10 @@ function Register() {
     const [email, setEmail] = React.useState("");
     const [password,setPass] = React.useState("");
     function Handleclick(e){
+        if(email === '' || password === ''){
+            alert("enter valid username and password");
+        }
+        else{
         axios.post("http://localhost:3000/admin/signup",{
             username: email,
             password:password
@@ -15,8 +19,9 @@ function Register() {
             console.log(res.data);
             navigate('/login');
         }).catch((err)=>{
-            console.log(err);
+            alert(err.code);
         })
+    }
     }
     return <div className="signupForm">
         <h1>Register to the website</h1>

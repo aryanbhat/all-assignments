@@ -4,6 +4,27 @@
   text-decoration: none;
   list-style: none;
 }
+input{
+  text-align: center;
+}
+body {
+	background: linear-gradient(-45deg,#d3cce3,#e9e4f0);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 .signupForm{
   display: flex;
   flex-direction: column;
@@ -20,4 +41,58 @@
 }
 .signupBtn{
   margin-top: 10%;
+}
+.CourseList{
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+}
+.CourseImg{
+  width: 80px;
+  height: 80px;
+  border-radius: 35px;
+  object-fit: scale-down;
+}
+.CourseCard{
+  margin: 20%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.showCourses{
+  text-align: center;
+}
+.courseForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: aliceblue;
+  height: 13vh;
+}
+
+.editForm{
+  text-align: center;
+  width: 50vw;
+  height: 80vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column ;
+}
+input{
+  padding: 3%;
+  width: 100%;
+}
+.editCourseMain{
+  padding: 5%;
+}
+.formInput{
+  margin: 2%;
 }
