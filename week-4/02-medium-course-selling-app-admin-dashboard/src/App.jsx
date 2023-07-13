@@ -6,6 +6,7 @@ import Register from './components/Register';
 import ShowCourses from './components/ShowCourses';
 import EditCourse from './components/EditCourse';
 import NoPage from './components/NoPage';
+import Appbar from './components/Appbar';
 
 // This file shows how you can do routing in React.
 // Try going to /login, /register, /about, /courses on the website and see how the html changes
@@ -13,6 +14,7 @@ import NoPage from './components/NoPage';
 // You can also try going to /random and see what happens (a route that doesnt exist)
 function App() {
     return (
+        <>
         <Router>
             <Routes>
                 <Route path="/" element={<Landing />} />
@@ -24,6 +26,7 @@ function App() {
                 <Route path="*" element={<NoPage />} />
             </Routes>
         </Router>
+        </>
     );
 }
 

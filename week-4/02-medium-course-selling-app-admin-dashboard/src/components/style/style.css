@@ -1,11 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 *{
   margin: 0;
   padding: 0;
   text-decoration: none;
   list-style: none;
-}
-input{
-  text-align: center;
+  font-family: 'Poppins',sans-serif;
 }
 body {
 	background: linear-gradient(-45deg,#d3cce3,#e9e4f0);
@@ -25,74 +24,7 @@ body {
 		background-position: 0% 50%;
 	}
 }
-.signupForm{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 80%;
-  height: 60vh;
-  margin: auto;
-}
-.signupFormInput{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-.signupBtn{
-  margin-top: 10%;
-}
-.CourseList{
- display: grid;
- grid-template-columns: 1fr 1fr 1fr;
-}
-.CourseImg{
-  width: 80px;
-  height: 80px;
-  border-radius: 35px;
-  object-fit: scale-down;
-}
-.CourseCard{
-  margin: 20%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.showCourses{
-  text-align: center;
-}
-.courseForm{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.navbar{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: aliceblue;
-  height: 13vh;
-}
 
-.editForm{
-  text-align: center;
-  width: 50vw;
-  height: 80vh;
-  margin: auto;
-  display: flex;
-  flex-direction: column ;
-}
-input{
-  padding: 3%;
-  width: 100%;
-}
-.editCourseMain{
-  padding: 5%;
-}
-.formInput{
-  margin: 2%;
+.fontPoppins{
+	font-family: 'Poppins',sans-serif;
 }
